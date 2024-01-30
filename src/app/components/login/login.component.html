@@ -1,0 +1,62 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+<ng-container *ngIf="!showRegistrationWindow; then logInWindow"></ng-container>
+<ng-container *ngIf="showRegistrationWindow; then registerWindow"></ng-container>
+
+<ng-template #logInWindow >
+    <div class="container">
+      <h2>Pieteikšanās Forma</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-item">
+              <span class="material-icons-outlined">
+                  account_circle
+                  </span>
+              <input type="text" name="email" id="email" formControlName="email" placeholder="Epasts">
+          </div>
+          <div class="form-item">
+              <span class="material-icons-outlined">                   
+                  lock
+                  </span>
+              <input type="password" name="pass" id="pass" formControlName="password" placeholder="Parole">
+
+          </div>
+          <button type="submit" class="btn btn-primary mt-4" > Pieteikties </button>
+          <p>Jauns lietotājs? <button (click)="showRegistrationWindow = true" class="btn btn-primary" >Reģistrācija</button></p>
+      </form>
+    </div>
+</ng-template>
+
+<ng-template #registerWindow>
+  <div class="row justify-content-center mt-5" style="width: 99%;">
+    <div class="reg-container">
+      <h2>Reģistrācija</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-item">
+              <span class="material-icons-outlined">
+                  account_circle
+                  </span>
+              <input type="text" name="email" id="email" formControlName="email" placeholder="Epasts">
+          </div>
+          <div class="form-item">
+              <span class="material-icons-outlined">                   
+                  lock
+                  </span>
+              <input type="text" name="username" id="username" formControlName="username" placeholder="Lietotāja vārds">
+          </div>
+          <div class="form-item">
+            <span class="material-icons-outlined">                   
+                lock
+                </span>
+            <input type="password" name="pass" id="pass" formControlName="password" placeholder="Parole">
+        </div>
+          <button type="submit" class="btn btn-primary mt-4" > Reģistrācija </button>
+          <p>Ir konts? <button (click)="showRegistrationWindow = false" class="btn btn-primary" >Pieteikšanās</button></p>
+      </form>
+  </div>
+  </div>
+</ng-template>
+
+
+
+
+  

@@ -1,0 +1,14 @@
+<h2>My Flowers</h2>
+<ul class="flowers">
+    <li *ngFor="let flower of flowers">
+        <div>
+            <span>name: </span>{{flower.name}}
+        </div>
+        <div>
+            <span>season: </span>{{flower.season}}
+        </div>
+        <div>
+            <span>harvestCountry: </span>{{flower.harvest_country}}
+        </div> 
+    </li>
+</ul>
